@@ -16,6 +16,8 @@ The goal of this addon is twofold:
     time to forget it. Pass/Fail 2 counters this design by simply
     removing the Hard button in the first place.
 
+[[./images/passfail.png]]
+
 * Install
 
 The simplest way to install this addon currently is to ~git clone~
