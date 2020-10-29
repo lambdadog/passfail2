@@ -18,19 +18,22 @@ from anki.hooks import wrap
 
 ## CHANGE ANSWER BUTTONS TO PASS/FAIL ##
 
+# Hardcoding the shortcut keys is a lazy solution,
+# but one I'm reasonably okay with
 def pfAnswerButtonList(self):
-    l = ((1, _("Fail")),)
+    l = ((1, _("Fail"), _("Shortcut key: 1")),)
     cnt = self.mw.col.sched.answerButtons(self.card)
     if cnt == 2 or cnt == 3:
-        return l + ((2, _("Pass")),)
+        return l + ((2, _("Pass"), _("Shortcut keys: 2, 3, 4")),)
     else:
-        return l + ((3, _("Pass")),)
+        return l + ((3, _("Pass"), _("Shortcut keys: 2, 3, 4")),)
 
 # For some reason it's necessary to copy over this function instead of
 # just wrapping _answerButtonList, I couldn't say why.
 def pfAnswerButtons(self, _old):
     default = self._defaultEase()
-    def but(i, label):
+    def but(i, label, shortcutDialog):
+        cnt = self.mw.col.sched.answerButtons(self.card)
         if i == default:
             extra = "id=defease"
         else:
@@ -38,10 +41,10 @@ def pfAnswerButtons(self, _old):
         due = self._buttonTime(i)
         return '''
 <td align=center>%s<button %s title="%s" data-ease="%s" onclick='pycmd("ease%d");'>\
-%s</button></td>''' % (due, extra, _("Shortcut key: %s") % i, i, i, label)
+%s</button></td>''' % (due, extra, shortcutDialog, i, i, label)
     buf = "<center><table cellpading=0 cellspacing=0><tr>"
-    for ease, label in pfAnswerButtonList(self):
-        buf += but(ease, label)
+    for ease, label, shortcutDialog in pfAnswerButtonList(self):
+        buf += but(ease, label, shortcutDialog)
     buf += "</tr></table>"
     script = """
 <script>$(function () { $("#defease").focus(); });</script>"""
