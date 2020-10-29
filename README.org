@@ -22,9 +22,9 @@ The goal of this addon is twofold:
 * Install
 
 To install this addon, go to the [[https://github.com/lambdadog/passfail2/releases][Releases]] page and download the latest
-release's ~passfail2.ankiaddon~ file, then navigate to ~Tools >
-Addons~ in Anki and click "Install From File". Select the
-~passfail2.ankiaddon~ file in your Downloads folder, then after
+release's ~passfail2-<version>.ankiaddon~ file, then navigate to
+~Tools > Addons~ in Anki and click "Install From File". Select the
+passfail2 anki addon file in your Downloads folder, then after
 installation has finished, restart Anki.
 
 I run this addon on Anki 2.1.15, and I've observed some minor changes
