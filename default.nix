@@ -6,9 +6,9 @@ let
   ankiAddonFilter = name: _:
     lib.hasSuffix ".py" name ||
     lib.hasSuffix ".json" name;
-in stdenvNoCC.mkDerivation {
+in stdenvNoCC.mkDerivation rec {
   pname = "passfail2";
-  version = "0.1.0";
+  version = "0.1.1";
 
   src = builtins.filterSource ankiAddonFilter ./.;
 
@@ -16,6 +16,6 @@ in stdenvNoCC.mkDerivation {
 
   buildPhase = ''
   mkdir -p $out
-  ${zip}/bin/zip -r $out/passfail2.ankiaddon *
+  ${zip}/bin/zip -r $out/passfail2-v${version}.ankiaddon *
   '';
 }
