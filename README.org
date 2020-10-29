@@ -20,19 +20,11 @@ The goal of this addon is twofold:
 
 * Install
 
-The simplest way to install this addon currently is to ~git clone~
-this repository into your Anki addons folder.
-
-On Linux this folder is ~~/.local/share/Anki2/addons21/~ for Anki
-2.1.x, so you would do the following.
-
-#+BEGIN_SRC
-$ cd ~/.local/share/Anki2/addons21/
-$ git clone https://github.com/lambdadog/passfail2
-#+END_SRC
-
-Currently I don't publish this addon on AnkiWeb or publish any GitHub
-releases, so it's not possible to install it that way.
+To install this addon, go to the [[https://github.com/lambdadog/passfail2/releases][Releases]] page and download the latest
+release's ~passfail2.ankiaddon~ file, then navigate to ~Tools >
+Addons~ in Anki and click "Install From File". Select the
+~passfail2.ankiaddon~ file in your Downloads folder, then after
+installation has finished, restart Anki.
 
 I run this addon on Anki 2.1.15, and I've observed some minor changes
 in the code I'm modifying in newer versions. I can't say for sure that
@@ -40,6 +32,23 @@ it will work for other versions as I haven't tested it, but as far as
 I can tell it looks likely that it should. If you choose to run this
 addon on a newer version of Anki and something doesn't work, please
 report the error to my [[https://github.com/lambdadog/passfail2/issues][issue tracker]], thanks!
+
+* Development
+
+The simplest way to develop on this addon is to ~git clone~ this
+a fork of this repository into your Anki addons folder.
+
+On Linux this folder is ~~/.local/share/Anki2/addons21/~ for Anki
+2.1.x, so you would click the fork button in the top-right corner of
+the page then do the following.
+
+#+BEGIN_SRC
+$ cd ~/.local/share/Anki2/addons21/
+$ git clone https://github.com/<your github username>/passfail2
+#+END_SRC
+
+Then you can proceed with modifying the addon within this folder. Note
+that you'll need to restart Anki every time you make changes.
 
 * License
 
