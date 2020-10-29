@@ -1,0 +1,45 @@
+#+TITLE: Pass/Fail 2
+
+An addon for Anki that removes the wide spectrum of "Again", "Easy",
+"Good", "Hard" buttons from your Anki reviews, instead choosing to
+offer you only two options: "Pass" and "Fail".
+
+The goal of this addon is twofold:
+
+ 1. The wide spectrum of buttons introduces decision paralysis when
+    reviewing. This is undesireable as when reviewing you should be
+    thinking more about what you're reviewing than what button to
+    press.
+ 2. The "Hard" button in Anki has an effect the opposite of what you
+    would desire -- when you find something difficult, it increases
+    the amount of time before you review it again, giving you more
+    time to forget it. Pass/Fail 2 counters this design by simply
+    removing the Hard button in the first place.
+
+* Install
+
+The simplest way to install this addon currently is to ~git clone~
+this repository into your Anki addons folder.
+
+On Linux this folder is ~~/.local/share/Anki2/addons21/~ for Anki
+2.1.x, so you would do the following.
+
+#+BEGIN_SRC
+$ cd ~/.local/share/Anki2/addons21/
+$ git clone https://github.com/lambdadog/passfail2
+#+END_SRC
+
+Currently I don't publish this addon on AnkiWeb or publish any GitHub
+releases, so it's not possible to install it that way.
+
+I run this addon on Anki 2.1.15, and I've observed some minor changes
+in the code I'm modifying in newer versions. I can't say for sure that
+it will work for other versions as I haven't tested it, but as far as
+I can tell it looks likely that it should. If you choose to run this
+addon on a newer version of Anki and something doesn't work, please
+report the error to my [[https://github.com/lambdadog/passfail2/issues][issue tracker]], thanks!
+
+* License
+
+Pass/Fail 2 is licensed under the GNU GPL, version 3 or later. See
+[[./LICENSE]] for more info.
