@@ -2,7 +2,8 @@
 
 An addon for Anki that removes the wide spectrum of "Again", "Easy",
 "Good", "Hard" buttons from your Anki reviews, instead choosing to
-offer you only two options: "Pass" and "Fail".
+offer you only two options: "Fail" and "Pass", setting keybinds to
+Fail:1, Pass:2/3/4.
 
 The goal of this addon is twofold:
 
