@@ -1,0 +1,7 @@
+#+TITLE: Changelog
+
+* v0.1.0
+ - Initial release
+ - Full basic functionality
+* v0.1.1
+ - Correct shortcut dialog of Pass/Fail buttons
