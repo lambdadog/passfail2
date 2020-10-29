@@ -38,7 +38,7 @@ report the error to my [[https://github.com/lambdadog/passfail2/issues][issue tr
 The simplest way to develop on this addon is to ~git clone~ this
 a fork of this repository into your Anki addons folder.
 
-On Linux this folder is ~\~/.local/share/Anki2/addons21/~ for Anki
+On Linux this folder is ~$HOME/.local/share/Anki2/addons21/~ for Anki
 2.1.x, so you would click the fork button in the top-right corner of
 the page then do the following.
 
