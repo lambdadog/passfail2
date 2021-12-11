@@ -19,6 +19,8 @@ The goal of this addon is twofold:
 
 [[./images/passfail.png]]
 
+Intended to be used with settings from [[https://refold.la/roadmap/stage-1/a/anki-setup#Low-key-Low-key-Anki]["Low-Key" Low-Key Anki]], but can also be used without.
+
 * Install
 
 ** From AnkiWeb
