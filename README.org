@@ -8,7 +8,7 @@ Fail:1, Pass:2/3/4.
 The goal of this addon is twofold:
 
  1. The wide spectrum of buttons introduces decision paralysis when
-    reviewing. This is undesireable as when reviewing you should be
+    reviewing. This is undesirable as when reviewing you should be
     thinking more about what you're reviewing than what button to
     press.
  2. The "Hard" button in Anki has an effect the opposite of what you
@@ -21,15 +21,18 @@ The goal of this addon is twofold:
 
 * Install
 
-To install this addon, go to the [[https://github.com/lambdadog/passfail2/releases][Releases]] page and download the latest
-release's ~passfail2-<version>.ankiaddon~ file, then navigate to
-~Tools > Addons~ in Anki and click "Install From File". Select the
-passfail2 anki addon file in your Downloads folder, then after
-installation has finished, restart Anki.
+** From AnkiWeb
 
-I run this addon on Anki 2.1.49 and can confirm that it works. If you're running this
-addon on a newer version of Anki and something doesn't work, please
-report the error to my [[https://github.com/lambdadog/passfail2/issues][issue tracker]], thanks!
+Pass/Fail 2 can be installed from AnkiWeb [[https://ankiweb.net/shared/info/876946123][here]].
+
+** Manually
+
+Pass/Fail 2 can be installed manually by going to the [[https://github.com/lambdadog/passfail2/releases][Releases]] page and downloading the latest
+release's ~passfail2-<version>.ankiaddon~ file, then navigating to
+~Tools > Addons~ in Anki and clicking "Install From File". You should then select the
+passfail2 anki addon file in your Downloads folder and restart Anki.
+
+Please keep in mind that if the addon updates, manual installs will need to be updated as well.
 
 * Development
 
