@@ -27,10 +27,7 @@ release's ~passfail2-<version>.ankiaddon~ file, then navigate to
 passfail2 anki addon file in your Downloads folder, then after
 installation has finished, restart Anki.
 
-I run this addon on Anki 2.1.15, and I've observed some minor changes
-in the code I'm modifying in newer versions. I can't say for sure that
-it will work for other versions as I haven't tested it, but as far as
-I can tell it looks likely that it should. If you choose to run this
+I run this addon on Anki 2.1.49 and can confirm that it works. If you're running this
 addon on a newer version of Anki and something doesn't work, please
 report the error to my [[https://github.com/lambdadog/passfail2/issues][issue tracker]], thanks!
 
