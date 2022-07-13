@@ -141,5 +141,4 @@ cython_debug/
 *~
 
 # Nix artifacts
-result/
-result-*/
+*.ankiaddon
