@@ -14,7 +14,6 @@
 
 from typing import Literal
 
-from anki.collection import CardIdsLimit
 import aqt.gui_hooks as gui_hooks
 from aqt.reviewer import Reviewer
 from anki.cards import Card
