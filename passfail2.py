@@ -67,7 +67,7 @@ def pf2_hook_remap_answer_ease(
 
 # Shims for old versions of anki
 def pf2_shim_answerButtonList(
-        self, # Reviewer
+        self, # type: Reviewer
         _old  # type: Callable[[Reviewer], tuple[tuple[int, str], ...]]
 ): # type: (...) -> tuple[tuple[int, str], ...]
     result = _old(self)
