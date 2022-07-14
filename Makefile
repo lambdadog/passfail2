@@ -1,5 +1,5 @@
 pyfiles = __init__.py passfail2.py
-version = 0.2.1
+version = 0.2.2
 
 outfile = passfail2-$(version).ankiaddon
 

@@ -10,3 +10,5 @@
  - Should now support every Anki 2.1.x version as portably as possible
 * v0.2.1
  - Fixed a bug causing incorrect ease and possible interference with other addons
+* v0.2.2
+ - Actually enable support for early Anki versions (tested in 2.1.15)
