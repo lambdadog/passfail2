@@ -1,5 +1,5 @@
 pyfiles = __init__.py passfail2.py
-version = 0.2.0
+version = 0.2.1
 
 outfile = passfail2-$(version).ankiaddon
 
@@ -8,7 +8,7 @@ outfile = passfail2-$(version).ankiaddon
 dist: $(outfile)
 
 clean:
-	rm $(outfile)
+	rm *.ankiaddon
 
 $(outfile): manifest.json $(pyfiles)
 	zip -r $(outfile) $^

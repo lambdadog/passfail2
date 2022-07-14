@@ -8,3 +8,5 @@
 * v0.2.0
  - Full rewrite
  - Should now support every Anki 2.1.x version as portably as possible
+* v0.2.1
+ - Fixed a bug causing incorrect ease and possible interference with other addons
