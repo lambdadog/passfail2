@@ -29,7 +29,7 @@ def pf2_replace_buttons(
 ) -> tuple[tuple[int, str], ...]:
     return (
         (1, "Fail"),
-        (2, "Pass")
+        (reviewer._defaultEase(), "Pass")
     )
 
 def pf2_remap_answer_ease(
@@ -42,9 +42,6 @@ def pf2_remap_answer_ease(
         return ease_tuple
     else:
         return (cont, reviewer._defaultEase())
-
-def pf2_force_defaultEase(_self) -> Literal[2, 3]:
-    return 2
 
 # Shims for old versions of anki
 def pf2_shim_answerButtonList(self, _old) -> tuple[tuple[int, str], ...]:
@@ -70,6 +67,3 @@ def init():
         gui_hooks.reviewer_will_answer_card.append(pf2_remap_answer_ease)
     else:
         Reviewer._answerCard = wrap(Reviewer._answerCard, pf2_shim_answerCard, 'around')
-
-    # Fixes some default behavior, including keybind popup
-    Reviewer._defaultEase = pf2_force_defaultEase
