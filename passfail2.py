@@ -35,7 +35,7 @@ from anki.cards import Card
 if point_version() >= 20:
     import aqt.gui_hooks as gui_hooks
 
-if point_version() >= 44:
+if point_version() >= 45:
     from aqt.utils import tr
 elif point_version() >= 36:
     from aqt.utils import tr
@@ -92,7 +92,7 @@ def pf2_fix_pass_title(
         self # type: Reviewer
 ): # type: (...) -> None
     title = None
-    if point_version() >= 44:
+    if point_version() >= 45:
         title = tr.actions_shortcut_key(val=2)
     elif point_version() >= 36:
         title = tr(TR.ACTIONS_SHORTCUT_KEY, val=2)
