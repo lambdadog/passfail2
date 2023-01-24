@@ -71,7 +71,10 @@ def pf2_shim_answerButtonList(
         _old  # type: Callable[[Reviewer], tuple[tuple[int, str], ...]]
 ): # type: (...) -> tuple[tuple[int, str], ...]
     result = _old(self)
-    return pf2_hook_replace_buttons(result, self, self.card)
+    if self.card:
+        return pf2_hook_replace_buttons(result, self, self.card)
+    else:
+        return result
 
 def pf2_shim_answerCard(
         self, # type: Reviewer
