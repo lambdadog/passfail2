@@ -13,5 +13,7 @@
 * v0.2.2
  - Actually enable support for early Anki versions (tested in 2.1.15)
 * v0.3.0
- - Enabled customization of button colors/names, functional in Anki 24.04.1, PyQT6
- - May not be fully functional in other versions
+ - Enabled customization of button colors/names, functional in Anki 24.04.1 Qt5/6
+ - Also functional in Anki 23.10.1 Qt6
+ - Also functional in Anki 2.1.66 Qt5
+ - May not be fully functional in earlier versions

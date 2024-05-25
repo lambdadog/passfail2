@@ -14,10 +14,9 @@
 
 try:
     from typing import Literal, Callable
-    from aqt.overview import Overview
     from aqt import mw
-except ImportError:
-    ()
+except ImportError as emp:
+    print(emp)
 
 try:
     from anki.utils import point_version
@@ -45,7 +44,7 @@ if point_version() >= 20:
 
 if point_version() >= 45:
     from aqt.utils import tr
-elif point_version() >= 36:
+elif point_version() >= 41:
     from aqt.utils import tr
     from anki.lang import TR
 else:
