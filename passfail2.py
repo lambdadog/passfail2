@@ -36,7 +36,7 @@ try:
     from . import button_color
     from . import configuration_menu
 except Exception as e3:
-    print("Issue with Pass / Fail: " + str(e3))
+    print("Issue with Pass / Fail: 4-" + str(e3))
 
 from anki.hooks import wrap
 

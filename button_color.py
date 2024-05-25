@@ -3,12 +3,12 @@ try:
     import aqt
     from aqt.utils import tr
 except Exception as e1:
-    print("Issue with Pass / Fail: " + str(e1))
+    print("pf logger: 2-" + str(e1))
 
 try:
     from aqt import mw
 except Exception as e1:
-    print("Issue with Pass / Fail: " + str(e1))
+    print("pf logger: 3-" + str(e1))
 
 
 
@@ -100,7 +100,6 @@ def answer_buttons_bgcolor_2_1_15(self):
     buf += "</tr></table>"
     script = """
 <script>$(function () { $("#defease").focus(); });</script>"""
-    print(buf)
     return buf + script
 
 

@@ -17,3 +17,6 @@
  - Also functional in Anki 23.10.1 Qt6
  - Also functional in Anki 2.1.66 Qt5
  - May not be fully functional in earlier versions
+* v0.3.1
+ - Fixed errors, now also supporting 2.1.15
+ - Not sure about other versions in between 2.1.15 and 24.04.1

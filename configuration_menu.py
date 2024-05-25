@@ -3,7 +3,7 @@ try:
     from aqt.qt import *
     from . import passfail2
 except Exception as e1:
-    print("Issue with Pass / Fail: " + str(e1))
+    print("pf logger: 1-" + str(e1))
 
 
 class SettingsDialog(QDialog):
