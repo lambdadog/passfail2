@@ -168,9 +168,14 @@ def init():
     Reviewer._showEaseButtons = wrap(Reviewer._showEaseButtons, pf2_fix_pass_title, 'after')
 
     # Use the Edited AnswerButtons, to re-draw Buttons, with Background Color Enabled
-    if toggle_bgcolor:
+    if toggle_bgcolor and point_version()>=66: # WHAT IS THE CUTOFF?
         try:
             Reviewer._answerButtons = wrap(Reviewer._answerButtons, button_color.answer_buttons_with_bgcolor, 'after')
         except Exception as e2:
             print("Issue with the BG Color part of Pass / Fail: " + str(e2))
+    elif toggle_bgcolor and point_version() < 66:
+        try:
+            Reviewer._answerButtons = wrap(Reviewer._answerButtons, button_color.answer_buttons_bgcolor_2_1_15, 'after')
+        except Exception as e2:
+            print("Issue with the old BG Color part of Pass / Fail: " + str(e2))
     # End of usage of Edited AnswerButtons
