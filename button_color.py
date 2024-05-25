@@ -2,9 +2,14 @@ try:
     from anki.scheduler.v3 import Scheduler as V3Scheduler
     import aqt
     from aqt.utils import tr
+except Exception as e1:
+    print("Issue with Pass / Fail: " + str(e1))
+
+try:
     from aqt import mw
 except Exception as e1:
     print("Issue with Pass / Fail: " + str(e1))
+
 
 
 def answer_buttons_with_bgcolor(self) -> str:
