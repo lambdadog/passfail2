@@ -14,9 +14,13 @@
 
 try:
     from typing import Literal, Callable
-    from aqt import mw
 except ImportError as emp:
     print(emp)
+
+try:
+    from aqt import mw
+except Exception as except1:
+    print("Error Here Pass Fail: " + str(except1))
 
 try:
     from anki.utils import point_version
