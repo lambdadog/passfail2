@@ -100,6 +100,7 @@ def answer_buttons_bgcolor_2_1_15(self):
     buf += "</tr></table>"
     script = """
 <script>$(function () { $("#defease").focus(); });</script>"""
+    print(buf)
     return buf + script
 
 
