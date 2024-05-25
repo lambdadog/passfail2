@@ -138,7 +138,7 @@ def pf2_fix_pass_title(
     title = None
     if point_version() >= 45:
         title = tr.actions_shortcut_key(val=2)
-    elif point_version() >= 36:
+    elif point_version() >= 41:
         title = tr(TR.ACTIONS_SHORTCUT_KEY, val=2)
     else:
         title = _("Shortcut key: %s") % 2
