@@ -59,6 +59,46 @@ def answer_buttons_with_bgcolor(self) -> str:
     print(config['again_button_name'])
     return buf
 
+def answer_buttons_bgcolor_2_1_15(self):
+    try:
+        config = mw.addonManager.getConfig(__name__)
+    except Exception as e:
+        print("Issue with Pass / Fail: " + str(e))
+
+    ## inserted ##
+
+    answer_button_background_color = '#ffffff'
+
+
+    ## inserted ##
+
+    default = self._defaultEase()
+    def but(i, label, bgcolor='#ffffff'):
+        if i == default:
+            extra = "id=defease"
+        else:
+            extra = ""
+        due = self._buttonTime(i)
+        return '''
+<td align=center>%s<button %s style="background-color: %s" title="%s" data-ease="%s" onclick='pycmd("ease%d");'>\
+%s</button></td>''' % (due, extra, answer_button_background_color, _("Shortcut key: %s") % i, i, i, label)
+    buf = "<center><table cellpading=0 cellspacing=0><tr>"
+    for ease, label in self._answerButtonList():
+
+        if font_tag_stripper(label) == config['again_button_name']:
+            answer_button_background_color = config['again_button_bgcolor']
+        elif font_tag_stripper(label) == config['good_button_name']:
+            answer_button_background_color = config['good_button_bgcolor']
+
+
+        buf += but(ease, label,answer_button_background_color)
+    buf += "</tr></table>"
+    script = """
+<script>$(function () { $("#defease").focus(); });</script>"""
+    return buf + script
+
+
+
 
 def font_tag_stripper(input_string):
     pass
