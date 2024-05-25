@@ -1,0 +1,10 @@
+{
+  "toggle_names_textcolors": "0",
+  "again_button_name": "Fail",
+  "good_button_name": "Pass",
+  "again_button_textcolor": "#000000",
+  "good_button_textcolor": "#000000",
+  "toggle_bgcolor": "0",
+  "again_button_bgcolor": "#de0d0d",
+  "good_button_bgcolor": "#26a269"
+}

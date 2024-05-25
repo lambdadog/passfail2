@@ -12,3 +12,6 @@
  - Fixed a bug causing incorrect ease and possible interference with other addons
 * v0.2.2
  - Actually enable support for early Anki versions (tested in 2.1.15)
+* v0.3.0
+ - Enabled customization of button colors/names, functional in Anki 24.04.1, PyQT6
+ - May not be fully functional in other versions
