@@ -20,3 +20,7 @@
 * v0.3.1
  - Fixed errors, now also supporting 2.1.15
  - Not sure about other versions in between 2.1.15 and 24.04.1
+* v0.3.2
+ - Fixed v0.2.2 errors on 2.1.40
+ - Appears to support the versions versions from 2.1.15 to 24.04.1
+ - Still need to investigate the 23.10.1 Qt5 upstream user-reported issue
