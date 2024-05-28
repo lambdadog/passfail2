@@ -12,15 +12,3 @@
  - Fixed a bug causing incorrect ease and possible interference with other addons
 * v0.2.2
  - Actually enable support for early Anki versions (tested in 2.1.15)
-* v0.3.0
- - Enabled customization of button colors/names, functional in Anki 24.04.1 Qt5/6
- - Also functional in Anki 23.10.1 Qt6
- - Also functional in Anki 2.1.66 Qt5
- - May not be fully functional in earlier versions
-* v0.3.1
- - Fixed errors, now also supporting 2.1.15
- - Not sure about other versions in between 2.1.15 and 24.04.1
-* v0.3.2
- - Fixed v0.2.2 errors on 2.1.40
- - Appears to support the versions versions from 2.1.15 to 24.04.1
- - Unable to replicate the 23.10.1 Qt5 upstream user-reported issue
