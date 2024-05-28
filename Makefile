@@ -1,5 +1,5 @@
 pyfiles = __init__.py passfail2.py configuration_menu.py button_color.py config.json
-version = 0.3.2
+version = 0.2.2
 
 outfile = passfail2-$(version).ankiaddon
 
