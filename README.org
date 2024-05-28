@@ -17,6 +17,11 @@ The goal of this addon is twofold:
     time to forget it. Pass/Fail 2 counters this design by simply
     removing the Hard button in the first place.
 
+As of version v0.3.0, this add-on now supports custom colors and text on your buttons!
+Just go to add-ons > pass / fail 2 > config and modify the buttons as you please.
+Then, close and re-open Anki, and your changes should be reflected!
+
+
 [[./images/passfail.png]]
 
 Intended to be used with settings from [[https://refold.la/roadmap/stage-1/a/anki-setup#Low-key-Low-key-Anki]["Low-Key" Low-Key Anki]], but can also be used without.
