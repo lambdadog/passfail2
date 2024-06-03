@@ -140,5 +140,9 @@ cython_debug/
 # Emacs artifacts
 *~
 
-# Nix artifacts
+# Make artifacts
 *.ankiaddon
+build_info.py
+
+# Anki runtime artifacts
+meta.json
