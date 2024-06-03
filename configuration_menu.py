@@ -2,6 +2,7 @@ from aqt import mw
 from aqt.qt import *
 
 from . import passfail2
+from . import build_info
 
 class SettingsDialog(QDialog):
     def __init__(self, parent=None):
@@ -11,7 +12,7 @@ class SettingsDialog(QDialog):
         self.mainWindow()
 
     def mainWindow(self):
-        self.setWindowTitle("Pass / Fail 2 v0.3.0")
+        self.setWindowTitle("Pass/Fail 2 v{}".format(build_info.version))
         self.setMinimumWidth(500)
 
         scroll_area = QScrollArea(self)
