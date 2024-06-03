@@ -158,7 +158,7 @@ def init():
 
     # Enable colored buttons
     if toggle_bgcolor:
-        if point_version() >= 66:
+        if point_version() >= 66: # TODO: further investigate version
             Reviewer._answerButtons = wrap(Reviewer._answerButtons, button_color.answer_buttons_with_bgcolor, 'after')
         else:
             Reviewer._answerButtons = wrap(Reviewer._answerButtons, button_color.answer_buttons_bgcolor_2_1_15, 'after')
