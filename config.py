@@ -38,8 +38,6 @@ def load():
     try:
         fs_config = mw.addonManager.getConfig(__name__)
 
-        log.info(fs_config)
-        log.info(_config)
         # We don't reuse update here because we want to silently
         # ignore removed keys in newer versions
         for k in _config.keys():

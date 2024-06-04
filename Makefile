@@ -1,5 +1,5 @@
-pyfiles = __init__.py passfail2.py configuration_menu.py config.json
-version = 0.2.2
+pyfiles = __init__.py passfail2.py logger.py config.py configuration_menu.py
+version = 0.3.0
 
 sed_cmds = -e "s/\$$version/'$(version)'/g"
 
@@ -15,6 +15,6 @@ clean:
 build_info.py: build_info.py.in Makefile
 	sed $(sed_cmds) $< > $@
 
-$(outfile): manifest.json $(pyfiles) build_info.py
+$(outfile): manifest.json config.json $(pyfiles) build_info.py
 	zip -r $(outfile) $^
 
