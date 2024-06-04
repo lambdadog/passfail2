@@ -1,13 +1,15 @@
 from aqt import mw
 from aqt.qt import *
 
+from . import config
+
 from . import passfail2
 from . import build_info
 
 class SettingsDialog(QDialog):
     def __init__(self, parent=None):
         super(SettingsDialog, self).__init__(parent)
-        self.preview_config = read_config()
+        self.preview_config = config.copy()
         self.error_label = None
         self.mainWindow()
 
@@ -162,15 +164,11 @@ class SettingsDialog(QDialog):
                 self.good_button_textcolor.setText(hex_color)
 
     def prepopulate_fields(self):
-        config_from_json = read_config()
-
-        self.toggle_names_textcolors.setChecked(bool(int(config_from_json['toggle_names_textcolors'])))
-        self.again_button_name.setText(config_from_json['again_button_name'])
-        self.good_button_name.setText(config_from_json['good_button_name'])
-        self.again_button_textcolor.setText(config_from_json['again_button_textcolor'])
-        self.good_button_textcolor.setText(config_from_json['good_button_textcolor'])
-
-        return config_from_json
+        self.toggle_names_textcolors.setChecked(bool(int(self.preview_config['toggle_names_textcolors'])))
+        self.again_button_name.setText(self.preview_config['again_button_name'])
+        self.good_button_name.setText(self.preview_config['good_button_name'])
+        self.again_button_textcolor.setText(self.preview_config['again_button_textcolor'])
+        self.good_button_textcolor.setText(self.preview_config['good_button_textcolor'])
 
     def update_preview_config(self):
         if self.current_config_is_valid():
@@ -199,7 +197,7 @@ class SettingsDialog(QDialog):
     def write_config(self):
         if self.current_config_is_valid():
             self.update_preview_config()
-            mw.addonManager.writeConfig(__name__, self.preview_config)
+            config.update(self.preview_config)
             self.close_config_window()
         else:
             self.error_label.show()

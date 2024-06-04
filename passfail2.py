@@ -31,7 +31,7 @@ except ImportError:
         def point_version():
             return int(version.split(".")[-1])
 
-# from . import button_color
+from . import config
 from . import configuration_menu
 
 from anki.hooks import wrap
@@ -50,39 +50,29 @@ elif point_version() >= 41:
 else:
     from anki.lang import _
 
-# Setup config
-toggle_names_textcolors = False
-again_button_name = "Fail"
-good_button_name = "Pass"
-again_button_textcolor = ""
-good_button_textcolor = ""
-
-try:
-    config = mw.addonManager.getConfig(__name__)
-    toggle_names_textcolors = bool(int(config['toggle_names_textcolors']))
-    again_button_name = config['again_button_name']
-    good_button_name = config['good_button_name']
-    again_button_textcolor = config['again_button_textcolor']
-    good_button_textcolor = config['good_button_textcolor']
-except Exception as err:
-    log.warn("Failed to import configuration, using defaults: %s", err)
-
 # Hooks
 def pf2_hook_replace_buttons(
         buttons_tuple, # type: tuple[tuple[int, str], ...]
         reviewer,      # type: Reviewer
         card           # type: Card
 ): # type: (...) -> tuple[tuple[int,str], ...]
-    if toggle_names_textcolors:
-        return (
-            (1, f"<font color='{again_button_textcolor}'>{again_button_name}</font>"),
-            (reviewer._defaultEase(), f"<font color='{good_button_textcolor}'>{good_button_name}</font>")
+    again_text = "Fail"
+    good_text = "Pass"
+
+    if config.as_bool('toggle_names_textcolors'):
+        again_text = "<font color='{}'>{}</font>".format(
+            config.as_str('again_button_textcolor'),
+            config.as_str('again_button_name')
         )
-    else:
-        return (
-            (1, "Fail"),
-            (reviewer._defaultEase(), "Pass")
+        good_text = "<font color='{}'>{}</font>".format(
+            config.as_str('good_button_textcolor'),
+            config.as_str('good_button_name')
         )
+
+    return (
+        (1, again_text),
+        (reviewer._defaultEase(), good_text)
+    )
 
 def pf2_hook_remap_answer_ease(
         ease_tuple, # type: tuple[bool, Literal[1, 2, 3, 4]]
@@ -137,6 +127,7 @@ def pf2_fix_pass_title(
 def init():
     version = point_version()
 
+    config.load()
     configuration_menu.configuration_menu_init()
 
     # Answer button list
