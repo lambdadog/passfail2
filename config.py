@@ -48,8 +48,6 @@ def load():
     except:
         log.warn("Failed to load config. Writing.")
 
-    log.info(_config)
-
     save()
 
 def save():
