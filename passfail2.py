@@ -31,7 +31,7 @@ except ImportError:
         def point_version():
             return int(version.split(".")[-1])
 
-from . import button_color
+# from . import button_color
 from . import configuration_menu
 
 from anki.hooks import wrap
@@ -52,7 +52,6 @@ else:
 
 # Setup config
 toggle_names_textcolors = False
-toggle_bgcolor = False
 again_button_name = "Fail"
 good_button_name = "Pass"
 again_button_textcolor = ""
@@ -61,7 +60,6 @@ good_button_textcolor = ""
 try:
     config = mw.addonManager.getConfig(__name__)
     toggle_names_textcolors = bool(int(config['toggle_names_textcolors']))
-    toggle_bgcolor = bool(int(config['toggle_bgcolor']))
     again_button_name = config['again_button_name']
     good_button_name = config['good_button_name']
     again_button_textcolor = config['again_button_textcolor']
@@ -155,10 +153,3 @@ def init():
 
     # Show "Shortcut key: 2" rather than "Shortcut key: 3" for "Pass" button
     Reviewer._showEaseButtons = wrap(Reviewer._showEaseButtons, pf2_fix_pass_title, 'after')
-
-    # Enable colored buttons
-    if toggle_bgcolor:
-        if point_version() >= 66: # TODO: further investigate version
-            Reviewer._answerButtons = wrap(Reviewer._answerButtons, button_color.answer_buttons_with_bgcolor, 'after')
-        else:
-            Reviewer._answerButtons = wrap(Reviewer._answerButtons, button_color.answer_buttons_bgcolor_2_1_15, 'after')

@@ -1,4 +1,4 @@
-pyfiles = __init__.py passfail2.py configuration_menu.py button_color.py config.json
+pyfiles = __init__.py passfail2.py configuration_menu.py config.json
 version = 0.2.2
 
 sed_cmds = -e "s/\$$version/'$(version)'/g"

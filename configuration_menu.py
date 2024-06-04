@@ -82,51 +82,19 @@ class SettingsDialog(QDialog):
         good_button_textcolor.addWidget(self.good_textcolor_picker)
         layout.addLayout(good_button_textcolor)
 
-        # Add 'Background Color' toggle switch
-        self.toggle_bgcolor = QCheckBox("Enable Background Color", self)
-        self.toggle_bgcolor.stateChanged.connect(self.toggleInputs2)
-        layout.addWidget(self.toggle_bgcolor)
-
-        # Text input boxes with labels
-        again_button_bgcolor = QHBoxLayout()
-        again_button_bgcolor.addWidget(QLabel("'Again' BG Color", self))
-        self.again_button_bgcolor = QLineEdit(self)
-        self.again_button_bgcolor.setPlaceholderText("Default: #de0d0d")
-        again_button_bgcolor.addWidget(self.again_button_bgcolor)
-
-        # Add 'Again' BG color picker
-        self.again_bgcolor_picker = QPushButton("Color Picker", self)
-        self.again_bgcolor_picker.setEnabled(False)  # Initially disabled
-        self.again_bgcolor_picker.clicked.connect(lambda: self.colorPick(3))
-        again_button_bgcolor.addWidget(self.again_bgcolor_picker)
-        layout.addLayout(again_button_bgcolor)
-
-        good_button_bgcolor = QHBoxLayout()
-        good_button_bgcolor.addWidget(QLabel("'Good' BG Color", self))
-        self.good_button_bgcolor = QLineEdit(self)
-        self.good_button_bgcolor.setPlaceholderText("Default: #26a269")
-        good_button_bgcolor.addWidget(self.good_button_bgcolor)
-
-        # Add 'Good' BG color picker
-        self.good_bgcolor_picker = QPushButton("Color Picker", self)
-        self.good_bgcolor_picker.setEnabled(False)  # Initially disabled
-        self.good_bgcolor_picker.clicked.connect(lambda: self.colorPick(4))
-        good_button_bgcolor.addWidget(self.good_bgcolor_picker)
-        layout.addLayout(good_button_bgcolor)
-
         # Add preview buttons
         preview_buttons_layout = QHBoxLayout()
 
         self.again_preview = QPushButton(self.preview_config['again_button_name'], self)
         self.again_preview.setStyleSheet(
-            "color: " + self.preview_config['again_button_textcolor'] + "; background-color: " + self.preview_config[
-                'again_button_bgcolor'])
+            "color: " + self.preview_config['again_button_textcolor']
+        )
         preview_buttons_layout.addWidget(self.again_preview)
 
         self.good_preview = QPushButton(self.preview_config['good_button_name'], self)
         self.good_preview.setStyleSheet(
-            "color: " + self.preview_config['good_button_textcolor'] + "; background-color: " + self.preview_config[
-                'good_button_bgcolor'])
+            "color: " + self.preview_config['good_button_textcolor']
+        )
         preview_buttons_layout.addWidget(self.good_preview)
 
         layout.addLayout(preview_buttons_layout)
@@ -171,7 +139,6 @@ class SettingsDialog(QDialog):
         self.prepopulate_fields()
         self.error_label.hide()
         self.toggleInputs1(self.toggle_names_textcolors.checkState())
-        self.toggleInputs2(self.toggle_bgcolor.checkState())
 
     def toggleInputs1(self, state):
         enabled = False
@@ -185,17 +152,6 @@ class SettingsDialog(QDialog):
         self.again_textcolor_picker.setEnabled(enabled)
         self.good_textcolor_picker.setEnabled(enabled)
 
-    def toggleInputs2(self, state):
-        enabled = False
-        if state == 2 or str(state) == "CheckState.Checked":
-            enabled = True
-
-        self.again_button_bgcolor.setEnabled(enabled)
-        self.good_button_bgcolor.setEnabled(enabled)
-
-        self.good_bgcolor_picker.setEnabled(enabled)
-        self.again_bgcolor_picker.setEnabled(enabled)
-
     def colorPick(self, button_number):
         color = QColorDialog.getColor()
         if color.isValid():
@@ -204,10 +160,6 @@ class SettingsDialog(QDialog):
                 self.again_button_textcolor.setText(hex_color)
             elif button_number == 2:
                 self.good_button_textcolor.setText(hex_color)
-            elif button_number == 3:
-                self.again_button_bgcolor.setText(hex_color)
-            elif button_number == 4:
-                self.good_button_bgcolor.setText(hex_color)
 
     def prepopulate_fields(self):
         config_from_json = read_config()
@@ -217,22 +169,18 @@ class SettingsDialog(QDialog):
         self.good_button_name.setText(config_from_json['good_button_name'])
         self.again_button_textcolor.setText(config_from_json['again_button_textcolor'])
         self.good_button_textcolor.setText(config_from_json['good_button_textcolor'])
-        self.toggle_bgcolor.setChecked(bool(int(config_from_json['toggle_bgcolor'])))
-        self.again_button_bgcolor.setText(config_from_json['again_button_bgcolor'])
-        self.good_button_bgcolor.setText(config_from_json['good_button_bgcolor'])
 
         return config_from_json
 
     def update_preview_config(self):
         if self.current_config_is_valid():
-            self.preview_config = {'toggle_names_textcolors': "1" if self.toggle_names_textcolors.isChecked() else "0",
-                                   'again_button_name': self.again_button_name.text(),
-                                   'good_button_name': self.good_button_name.text(),
-                                   'again_button_textcolor': self.again_button_textcolor.text(),
-                                   'good_button_textcolor': self.good_button_textcolor.text(),
-                                   'toggle_bgcolor': "1" if self.toggle_bgcolor.isChecked() else "0",
-                                   'again_button_bgcolor': self.again_button_bgcolor.text(),
-                                   'good_button_bgcolor': self.good_button_bgcolor.text()}
+            self.preview_config = {
+                'toggle_names_textcolors': "1" if self.toggle_names_textcolors.isChecked() else "0",
+                'again_button_name': self.again_button_name.text(),
+                'good_button_name': self.good_button_name.text(),
+                'again_button_textcolor': self.again_button_textcolor.text(),
+                'good_button_textcolor': self.good_button_textcolor.text()
+            }
             self.error_label.hide()
             self.update_preview_buttons()
         else:
@@ -241,12 +189,12 @@ class SettingsDialog(QDialog):
     def update_preview_buttons(self):
         self.again_preview.setText(self.preview_config['again_button_name'])
         self.again_preview.setStyleSheet(
-            "color: " + self.preview_config['again_button_textcolor'] + "; background-color: " + self.preview_config[
-                'again_button_bgcolor'])
+            "color: " + self.preview_config['again_button_textcolor']
+        )
         self.good_preview.setText(self.preview_config['good_button_name'])
         self.good_preview.setStyleSheet(
-            "color: " + self.preview_config['good_button_textcolor'] + "; background-color: " + self.preview_config[
-                'good_button_bgcolor'])
+            "color: " + self.preview_config['good_button_textcolor']
+        )
 
     def write_config(self):
         if self.current_config_is_valid():
@@ -260,11 +208,12 @@ class SettingsDialog(QDialog):
         self.close()
 
     def current_config_is_valid(self):
-        is_valid = (is_valid_name(self.again_button_name.text()) and is_valid_name(
-            self.good_button_name.text()) and is_valid_hex_color(
-            self.again_button_textcolor.text()) and is_valid_hex_color(
-            self.good_button_textcolor.text()) and is_valid_hex_color(
-            self.again_button_bgcolor.text()) and is_valid_hex_color(self.good_button_bgcolor.text()))
+        is_valid = (
+            is_valid_name(self.again_button_name.text())
+            and is_valid_name(self.good_button_name.text())
+            and is_valid_hex_color(self.again_button_textcolor.text())
+            and is_valid_hex_color(self.good_button_textcolor.text())
+        )
         return is_valid
 
 
