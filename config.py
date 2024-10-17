@@ -47,8 +47,7 @@ def load():
                 ()
     except:
         log.warn("Failed to load config. Writing.")
-
-    save()
+        save()
 
 def save():
     mw.addonManager.writeConfig(__name__, _config)
